@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            max-width:400px;
+            margin:0 auto;
+        }
+        ul{
+            padding-left:0;
+        }
+        li{
+            list-style: none;
+            border-radius:5px;
+            border:1px solid #edc9f8;
+            padding:10px;
+            margin-bottom:10px;
+            background-color: #f8e0ff;
+            transition:transform .2s ease,box-shadow .2s ease;
+        }
+        li:hover{
+            cursor:pointer;
+            box-shadow:0 2px 5px 0 #da86f36c;
+            transform: scale(1.01);
+        }
+        button{
+            background: #3f3bff;
+            padding:10px 20px;
+            color:#fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Item Lists</h2>
+        <ul id="item-lists">
+            <li class="item">Item-1</li>
+            <li class="item">Item-2</li>
+        </ul>
+    <button id="add-item">Add New Item</button>
+    </div>
+
+
+    <script>
+        document.getElementById('add-item').addEventListener('click', function(){
+            const li = document.createElement('li');
+            li.innerText = 'New Item';
+            li.classList.add('item');
+            const parent = document.getElementById('item-lists');
+            parent.appendChild(li);
+        })
+        document.getElementById('item-lists').addEventListener('click', function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        #number{
+            font-size:50px;
+        } 
+    </style>
+</head>
+<body>
+    
+    <main class="">
+        <div class="toast position-absolute end-0 shadow fixed align-items-center" role="alert" aria-live="assertive" aria-atomic="true" style="z-index:1" id="toast">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Negative value is not acceptable
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="text-center mt-5 mb-4">Quantity Buttons</h1>
+        <h1 class="text-center mt-5 mb-4" id="number">0</h1>
+        <div class="buttons text-center">
+            <button class="btn btn-primary me-1 p-3" id="add" onclick="add()">+</button>
+            <button class="btn btn-danger ms-1 p-3" id="minus" onclick="minus()">-</button>
+        </div>
+        </div>
+    </main>
+    
+    
+<script>
+    function controlValue(id){
+        document.getElementById(id).innerText = count;
+    }
+
+   let count = 0;
+   function add(){
+    document.getElementById('minus').classList.remove('disabled');
+    count++;
+    controlValue('number');
+   }
+   
+   function minus(){
+        if (count < 1) {
+        document.getElementById('minus').classList.add('disabled');
+        document.getElementById('toast').classList.add('show');
+    }else{
+        count--;
+        controlValue('number');
+    }
+   }
+    
+</script>
+
+<!-- Bootstrap  -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
